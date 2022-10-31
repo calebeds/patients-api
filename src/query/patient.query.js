@@ -3,6 +3,7 @@ const QUERY = {
   SELECT_PATIENT: "SELECT * FROM patients WHERE id = ?",
   CREATE_PATIENT:
     "INSERT INTO patients(first_name, last_name, email, address, diagnosis, phone, image_url) VALUES (?, ?, ?, ?, ?, ?, ?)",
+  CREATE_PATIENT_PROCEDURE: "CALL CREATE_AND_RETURN(?, ?, ?, ?, ?, ?, ?) ",
   UPDATE_PATIENT:
     "UPDATE patients SET first_name = ?, last_name = ?, email = ?, address= ?, diagnosis = ?, phone = ?, image_url = ? WHERE id = ?",
   DELETE_PATIENT: "DELETE FROM patients WHERE id = ?",
