@@ -8,6 +8,7 @@ CREATE TABLE
     patients (
         id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
         first_name VARCHAR(255) DEFAULT NULL,
+        last_name VARCHAR(255) DEFAULT NULL,
         email VARCHAR(255) DEFAULT NULL,
         phone VARCHAR(255) DEFAULT NULL,
         address VARCHAR(255) DEFAULT NULL,
