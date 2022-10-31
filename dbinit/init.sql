@@ -18,3 +18,36 @@ CREATE TABLE
         PRIMARY KEY (id),
         CONSTRAINT UQ_Patients_Email Unique (email)
     );
+
+DELIMITER //
+
+CREATE PROCEDURE CREATE_AND_RETURN(IN FIRST_NAME VARCHAR
+(255), IN LAST_NAME VARCHAR(255), IN EMAIL VARCHAR
+(255), IN PHONE VARCHAR(255), IN ADDRESS VARCHAR(255
+), IN DIAGNOSIS VARCHAR(255), IN IMAGE_URL VARCHAR
+(255)) BEGIN 
+	INSERT INTO
+	    patients(
+	        first_name,
+	        last_name,
+	        email,
+	        address,
+	        diagnosis,
+	        phone,
+	        image_url
+	    )
+	VALUES (
+	        first_name,
+	        last_name,
+	        email,
+	        address,
+	        diagnosis,
+	        phone,
+	        image_url
+	    );
+	SET @PATIENT_ID = LAST_INSERT_ID();
+	SELECT * FROM patients WHERE id=@PATIENT_ID;
+	END // 
+
+
+DELIMITER;
