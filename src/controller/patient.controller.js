@@ -122,7 +122,7 @@ export const updatePatient = (req, res) => {
       console.log(`${req.method} ${req.originalUrl}, updating patient`);
       database.query(
         QUERY.UPDATE_PATIENT,
-        [...Object.values(...req.body), req.params.id],
+        [...Object.values(req.body), req.params.id],
         (error, results) => {
           if (!error) {
             res

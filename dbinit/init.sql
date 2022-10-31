@@ -13,7 +13,8 @@ CREATE TABLE
         phone VARCHAR(255) DEFAULT NULL,
         address VARCHAR(255) DEFAULT NULL,
         diagnosis VARCHAR(255) DEFAULT NULL,
-        created__at VARCHAR(255) DEFAULT CURRENT_TIMESTAMP,
+        image_url VARCHAR(255) DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY (id),
         CONSTRAINT UQ_Patients_Email Unique (email)
     );
