@@ -16,9 +16,32 @@ services:
       MYSQL_USER: admin
       MYSQL_PASSWORD: letmein
       MYSQL_ROOT_PASSWORD: letmein
-      SERVICES_TAGS: dev
+      SERVICES_TAGS: prod
       SERVICES_NAME: mysqldb
-    networks: 
+    networks:
+      - internalnet
+
+  nodeapp:
+    container_name: nodeappcontainer
+    build: .
+    image: nodeapp:v1
+    ports:
+      - 3000:3000
+    expose:
+      - 3000
+    environment:
+      DB_HOST: mysqldb
+      DB_PORT: 3306
+      DB_USER: 'admin'
+      DB_PASSWORD: 'letmein'
+      DB_NAME: patientsdb
+      DB_CONNECTION_LIMIT: 20
+      SERVICES_TAGS: prod
+      SERVICES_NAME: nodeservice
+      SERVER_PORT: 3000
+    depends_on:
+      - mysqldb
+    networks:
       - internalnet
 
 networks:
